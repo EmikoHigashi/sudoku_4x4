@@ -138,4 +138,27 @@
             // HTML生成
             const block = document.createElement('div');
             block.className = 'puzzle-block';
-            block.innerHTML = `<div class="puzzle-title">
+            block.innerHTML = `<div class="puzzle-title">もんだい ${i}</div>`;
+            
+            const gridDiv = document.createElement('div');
+            gridDiv.className = 'sudoku-grid';
+            
+            for(let r=0; r<4; r++) {
+                for(let c=0; c<4; c++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    cell.textContent = puzzle[r][c] === 0 ? '' : puzzle[r][c];
+                    gridDiv.appendChild(cell);
+                }
+            }
+            block.appendChild(gridDiv);
+            output.appendChild(block);
+        }
+    }
+
+    // 初回実行
+    generate();
+</script>
+
+</body>
+</html>
